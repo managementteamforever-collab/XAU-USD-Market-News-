@@ -37,6 +37,11 @@ RSS_FEEDS = [
     # Central Bank / Economic
     "https://www.investing.com/rss/news_25.rss",   # Gold news
     "https://www.marketwatch.com/rss/realtimeheadlines",
+    # Trump / Political — Google News RSS (covers Trump tweets/statements within minutes)
+    "https://news.google.com/rss/search?q=Trump+gold+economy&hl=en-US&gl=US&ceid=US:en",
+    "https://news.google.com/rss/search?q=Trump+Fed+Powell+dollar&hl=en-US&gl=US&ceid=US:en",
+    "https://news.google.com/rss/search?q=Trump+Iran+war+sanctions&hl=en-US&gl=US&ceid=US:en",
+    "https://news.google.com/rss/search?q=Trump+tariff+trade+war&hl=en-US&gl=US&ceid=US:en",
 ]
 
 # Keywords that could move gold — if headline has NONE of these, skip immediately
@@ -59,6 +64,10 @@ GOLD_RELEVANT_KEYWORDS = [
     # Market stress
     "crash", "collapse", "crisis", "default", "banking",
     "emergency", "black swan",
+    # Trump statements (move gold fast)
+    "trump", "tariff", "trade war", "executive order",
+    "truth social", "white house", "mar-a-lago",
+    "fire powell", "replace fed", "weak dollar",
 ]
 
 # ─── CACHE ─────────────────────────────────────────────────────────────────────
@@ -136,6 +145,7 @@ STRICT CRITERIA — only include if it's likely to cause >0.5% gold price moveme
 - Major financial crisis or banking stress
 - US Dollar sharp move drivers
 - Large central bank gold buying/selling announcement
+- Trump statements about Fed, dollar, Iran, tariffs, trade war (these move gold fast)
 
 For EACH qualifying headline, provide a JSON object. Return ONLY a JSON array, no other text:
 [
@@ -295,3 +305,4 @@ async def run_agent():
 
 if __name__ == "__main__":
     asyncio.run(run_agent())
+                    
